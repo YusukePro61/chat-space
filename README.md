@@ -72,4 +72,4 @@ has_many :users, through: :groups_users
 
 ### Association
 belongs_to :user
-belongs_to :post
+belongs_to :group
