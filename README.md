@@ -34,14 +34,15 @@ Things you may want to cover:
 ### Association
 has_many :users_groups
 has_many :posts
+has_many :groups
 
 
 ## postsテーブル
 
 |Column|Type|Option|
 |------|----|------|
-|message|string|null: false|
-|image |string|null: fallse|
+|message|string|
+|image |string|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
@@ -54,14 +55,13 @@ belongs_to :group
 
 |Column|Type|Option|
 |------|----|------|
-|group_name|string|null :false|
+|name|string|null :false|
 |member_name|string|null :false|
-|user_name|string|null :false|
 
 ### Association
 has_many :posts
 has_many :users_groups
-
+has_many :users
 
 ## groups_usersテーブル
 
