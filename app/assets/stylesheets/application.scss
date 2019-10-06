@@ -1,0 +1,23 @@
+@import "reset";
+@import "variable";
+@import "sidebar";
+@import "main-header";
+@import "main-display";
+@import "chat-box";
+@import "font-awesome";
+
+.top-header{
+  width: 100%;
+  text-align: center;
+  background-color:#38AEF0;
+  color: $white;
+}
+
+.container{
+  display: flex;
+  .main{
+    width:(calc(100vw - 300px));
+
+  }
+
+}
