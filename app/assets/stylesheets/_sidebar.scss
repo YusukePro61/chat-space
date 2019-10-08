@@ -1,0 +1,54 @@
+.sidebar{
+  width: 300px;
+  position: relative;
+  &__header{
+    box-sizing: border-box;
+    background-color: #253141;
+    height: 100px;
+    padding: 0 20px;
+    &__username{
+      color: $white;
+      font-size: 16px;
+      font-weight: bold;
+      padding-top: 35px;
+    }
+    &__right{
+      color: $white;
+      float: right;
+      position: absolute;
+      right: 20px;
+      top: 35px;
+      li{
+        display: inline;
+      }
+    }
+
+    
+}
+  &__main{
+    box-sizing: border-box;
+    background-color: #2f3e51;
+    height: calc(100vh - 100px);
+    padding: 20px 20px 0;
+    &__test{
+      font-size: 15px;
+      font-weight: bold;
+      color: $white;
+      padding-bottom: 5px;
+    }
+    &__bye{
+      font-size: 11px;
+      font-weight: bold;
+      color: $white;
+      padding-bottom: 40px;
+    }
+    &__test1{
+      padding-bottom: 40px;
+      color: $white;
+    }
+    &__test2{
+      color: $white;
+    }
+
+}
+}
