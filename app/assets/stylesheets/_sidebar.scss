@@ -25,29 +25,22 @@
 
     
 }
-  &__main{
+  .groups{
     box-sizing: border-box;
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     padding: 20px 20px 0;
-    &__test{
+    .group__name{
       font-size: 15px;
       font-weight: bold;
       color: $white;
       padding-bottom: 5px;
     }
-    &__bye{
+    .group__message{
       font-size: 11px;
       font-weight: bold;
       color: $white;
       padding-bottom: 40px;
-    }
-    &__test1{
-      padding-bottom: 40px;
-      color: $white;
-    }
-    &__test2{
-      color: $white;
     }
 
 }

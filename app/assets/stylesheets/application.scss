@@ -5,11 +5,14 @@
 @import "main-display";
 @import "chat-box";
 @import "font-awesome";
+@import "user";
+@import "flash";
+@import "group";
 
 .top-header{
   width: 100%;
   text-align: center;
-  background-color:#38AEF0;
+  background-color:$light_blue;
   color: $white;
 }
 
