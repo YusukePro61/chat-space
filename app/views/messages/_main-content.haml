@@ -5,24 +5,16 @@
     Member: test
   .main-header__right
     = link_to "Edit", '',class: "main-header__right__btn"
-.main-display
-  .main-display__username
-    test-user
-    .main-display__username__date
-      2019/10/05(Sat)00:00:00
-  .main-display__comment
-    こんにちは
-  .main-display__username-2
-    test-user2
-    .main-display__username-2__date-2
-      2019/10/06(Sun)00:00:00
-  .main-display__comment-2
-    こんばんは
+
+.main-content
+  = render @messages
 
 .chat-box
   .chat-box__form
-    %input{type:"text", class:"chat-box__form__input", placeholder:"type a message"}
-      %label.upload-label{for: "upload-icon", class: "chat-box__form__input__img"}
-        %i.fa.fa-picture-o
-
-    %input{type:"Submit", class:"chat-box__form__submit", value:"Send"}
+    = form_for [@group, @message] do |f|
+      .chat-box__form__in
+        = f.text_field :content, class:"chat-box__form__input", placeholder:"type a message"
+        = f.label :image, class: "chat-box__form__input__img" do
+          = fa_icon 'picture-o'
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'chat-box__form__submit'
