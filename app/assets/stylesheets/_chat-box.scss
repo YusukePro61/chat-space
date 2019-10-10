@@ -17,7 +17,11 @@
         right: 165px;
         font-size: 1.3rem;
         cursor: pointer;
+        .hidden{
+          display: none;
+        }
       }
+
     }
     &__submit{
       width: 100px;
@@ -29,5 +33,11 @@
       cursor: pointer;
     }
   }
+    .chat-box__form__in{
+      display: flex;
+    }
 
+    .new_message{
+      width: 100%;
+    }
 }
