@@ -1,13 +1,8 @@
 $(function(){
 
   function buildMessage(message){
-    if(message.img == null) 
-    {
-      var img = ""
-    }else
-    {
-      var img = `<img class="lower-message__image" src="${message.img}">`
-    }
+    var img = (message.img) ? `<img class="lower-message__image" src="${message.img}">` : '';
+
     var html = `<div class="main-display">
                   <div class="main-display__username">
                     ${message.name}
@@ -27,7 +22,6 @@ $(function(){
 
 
   $('#new_message').on('submit',function(e){
-    console.log(this);
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action');
@@ -39,14 +33,23 @@ $(function(){
       processData: false,
       contentType: false
     })
+
     .done(function(message){
-      console.log(message);
       var insert_html = buildMessage(message);
       $('.main-content').append(insert_html)
+      $('form')[0].reset();
+      $('.main-content').animate({ scrollTop: $('.main-content')[0].scrollHeight});
+      $('.chat-box__form__submit').attr('disabled', false);
     })
+
     .fail(function(){
-      console.log('fail');
-    })
-  })
+      $('form')[0].reset();
+      $('.chat-box__form__submit').attr('disabled', false);
+      alert('入力して下さい');
+    });
+
+  });
 });
+
+
 
