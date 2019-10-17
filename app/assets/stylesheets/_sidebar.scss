@@ -20,6 +20,9 @@
       top: 35px;
       li{
         display: inline;
+        .icon{
+          color: white;
+        }
       }
     }
 
@@ -42,6 +45,5 @@
       color: $white;
       padding-bottom: 40px;
     }
-
 }
 }
