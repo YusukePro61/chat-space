@@ -4,7 +4,7 @@
   %p.main-header__member
     Member: test
   .main-header__right
-    = link_to "Edit", '',class: "main-header__right__btn"
+    = link_to "Edit", edit_group_path(@group), class: "main-header__right__btn"
 
 .main-content
   = render @messages
