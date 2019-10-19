@@ -1,19 +1,19 @@
 $(function(){
 
-  function buildAnotherMSG(message){
-    var images = (message.image) ? `<img class="lower-message__image" src="${message.image}">` : '';
+  function buildMessage(message){
+    var img = (message.img) ? `<img class="lower-message__image" src="${message.img}">` : '';
     var userHTML = `<div class="main-display" data-id=${message.id}>
                         <div class="main-display__username">
-                          ${message.user_name}
+                          ${message.name}
                         <div class="main-display__username__date">
-                          ${message.created_at}
+                          ${message.date}
                           </div>
                         </div>
                       <div class="main-display__comment">
                         <p class="lower-message__content">
                           ${message.content}
                         </p>
-                          ${images}
+                          ${img}
                       </div>
                     </div>`
     return userHTML
@@ -31,7 +31,7 @@ $(function(){
 
     .done(function(messages){
       messages.forEach(function(message) {
-        var usermsg = buildAnotherMSG(message)
+        var usermsg = buildMessage(message)
         $('.main-content').append(usermsg)
       })
       $('.main-content').animate({ scrollTop: $('.main-content')[0].scrollHeight},);
@@ -40,26 +40,6 @@ $(function(){
       alert('error');
     })
 });
-
-  function buildMessage(message){
-    var img = (message.img) ? `<img class="lower-message__image" src="${message.img}">` : '';
-    var html = `<div class="main-display" data-id='message.id'>
-                    <div class="main-display__username">
-                      ${message.name}
-                    <div class="main-display__username__date">
-                      ${message.date}
-                    </div>
-                    </div>
-                    <div class="main-display__comment">
-                      <p class="lower-message__content">
-                        ${message.content}
-                      </p>
-                        ${img}
-                    </div>
-                </div>`
-    return html;
-  }
-
 
   $('#new_message').on('submit',function(e){
     e.preventDefault();
