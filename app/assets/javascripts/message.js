@@ -21,7 +21,6 @@ $(function(){
 
   var reloadMessages = (function(){
     var last_message_id = $('.main-display').last().data('id');
-    console.log(last_message_id);
 
     $.ajax({
       url: "api/messages",
@@ -31,16 +30,14 @@ $(function(){
     })
 
     .done(function(messages){
-      // console.log('success')
-      // console.log(messages)
       messages.forEach(function(message) {
         var usermsg = buildAnotherMSG(message)
         $('.main-content').append(usermsg)
       })
-      $('.main-content').animate({ scrollTop: $('.main-content')[0].scrollHeight}, 'fast');
+      $('.main-content').animate({ scrollTop: $('.main-content')[0].scrollHeight},);
     })
     .fail(function(){
-      console.log('error');
+      alert('error');
     })
 });
 
