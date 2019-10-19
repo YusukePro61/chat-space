@@ -1,11 +1,10 @@
-.main-display
-  .main-message{data: {id: "message"}}
-    .main-display__username
-      = message.user.name
-      .main-display__username__date
-        = message.created_at.strftime("%Y/%m/%d %H:%M") 
-    .main-display__comment 
-      - if message.content.present?
-        %p.lower-message__content
-          = message.content 
-      = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+.main-display{data: {id: message}}
+  .main-display__username
+    = message.user.name
+    .main-display__username__date
+      = message.created_at.strftime("%Y/%m/%d %H:%M") 
+  .main-display__comment 
+    - if message.content.present?
+      %p.lower-message__content
+        = message.content 
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
