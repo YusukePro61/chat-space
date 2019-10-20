@@ -1,8 +1,10 @@
 .main-header
   %h3.main-header__group
-    test-group
+    = @group.name
   %p.main-header__member
-    Member: test
+    Member:
+    - @group.users.each do |user|
+      = user.name
   .main-header__right
     = link_to "Edit", edit_group_path(@group), class: "main-header__right__btn"
 

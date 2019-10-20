@@ -56,7 +56,7 @@ $(function(){
 
     .done(function(message){
       var insert_html = buildMessage(message);
-      $('.main-content').append(insert_html)
+      $('.main-content').append(insert_html);
       $('form')[0].reset();
       $('.main-content').animate({ scrollTop: $('.main-content')[0].scrollHeight});
       $('.chat-box__form__submit').attr('disabled', false);
