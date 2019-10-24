@@ -20,8 +20,8 @@ $(function(){
   }
 
   var reloadMessages = (function(){
-    var last_message_id = $('.main-display').last().data('id');
-
+    var last_message_id = $('.main-display:last-child').data('id');
+    console.log(last_message_id)
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -33,9 +33,10 @@ $(function(){
       messages.forEach(function(message) {
         var usermsg = buildMessage(message)
         $('.main-content').append(usermsg)
+      $('.main-content').animate({ scrollTop: $('.main-content')[0].scrollHeight},)
       })
-      $('.main-content').animate({ scrollTop: $('.main-content')[0].scrollHeight},);
     })
+
     .fail(function(){
       alert('error');
     })
