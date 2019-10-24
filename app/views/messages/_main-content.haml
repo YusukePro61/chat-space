@@ -6,7 +6,7 @@
     - @group.users.each do |user|
       = user.name
   .main-header__right
-    = link_to "Edit", edit_group_path(@group), class: "main-header__right__btn"
+    = link_to "Edit", edit_group_path(@group), class: "main-header__right__btn", data: {"turbolinks" => false}
 
 .main-content
   = render @messages
