@@ -17,6 +17,14 @@ $(function(){
     return chatmember
   }
 
+  function error() {
+    var ermsg = `<div class='chat-group-user'>
+                  <p class='chat-group-user__name'>"一致するユーザーが見つかりません"</p>
+                </div>`
+    return ermsg
+  }
+
+
   $('#user-search-field').on("keyup", function(){
     var input = $('#user-search-field').val();
     $('#user-search-result').empty()
@@ -29,21 +37,25 @@ $(function(){
     })
 
     .done(function(users){
-      users.forEach(function(user){
-      var user_name = buildUser(user);
-
-        if (user.length !== 0)
-          $('#user-search-result').append(user_name)
-        else {
-          var ErrMsgToHTML = "一致するユーザーが見つかりません"
+      console.log(users)
+      if (users.length !== 0 && input > 0){
+        users.forEach(function (user){
+          var user_name = buildUser(user);
+            console.log('success')
+            $('#user-search-result').append(user_name)
+      })
+      }
+       else {
+          console.log('a')
+          var ErrMsgToHTML = error
           $('#user-search-result').append(ErrMsgToHTML);
         }
       })
-    })
+
     .fail(function(){
       alert('error');
     });
-  });
+  })
 
   $(document).on("click", '.chat-group-user__btn--add', function () {
     console.log(this)
