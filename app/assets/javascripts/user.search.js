@@ -19,7 +19,7 @@ $(function(){
 
   function error() {
     var ermsg = `<div class='chat-group-user'>
-                  <p class='chat-group-user__name'>"一致するユーザーが見つかりません"</p>
+                  <p class='chat-group-user__name'>一致するユーザーが見つかりません</p>
                 </div>`
     return ermsg
   }
@@ -27,6 +27,10 @@ $(function(){
 
   $('#user-search-field').on("keyup", function(){
     var input = $('#user-search-field').val();
+    var already_user = []
+    $('.chat-group-alredy').each(function(){
+      already_user.push(attr());
+    });
     $('#user-search-result').empty()
 
     $.ajax({
@@ -38,18 +42,20 @@ $(function(){
 
     .done(function(users){
       console.log(users)
-      if (users.length !== 0 && input > 0){
+      if (users.length !== 0 && input > 0 ){
         users.forEach(function (user){
+        // if (user.id !== user.id){
           var user_name = buildUser(user);
             console.log('success')
             $('#user-search-result').append(user_name)
+        // }
       })
       }
-       else {
-          console.log('a')
-          var ErrMsgToHTML = error
-          $('#user-search-result').append(ErrMsgToHTML);
-        }
+      else {
+        console.log('a')
+        var ErrMsgToHTML = error
+        $('#user-search-result').append(ErrMsgToHTML);
+      }
       })
 
     .fail(function(){
